@@ -46,7 +46,14 @@ class DashboardScreen extends StatelessWidget {
                 flex: 1,
                 child: StoppedTimers(),
               ),
-              const RunningTimers(),
+              SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: MediaQuery.sizeOf(context).height / 3,
+                  ),
+                  child: const RunningTimers(),
+                ),
+              ),
               Material(
                 elevation: 8.0,
                 color: Theme.of(context).colorScheme.surfaceVariant,
